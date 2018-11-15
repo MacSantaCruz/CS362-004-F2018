@@ -5,6 +5,8 @@ rngs.o: rngs.h rngs.c
 
 dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g  $(CFLAGS)
+cardtest1: cardtest1.c dominion.o rngs.o
+	gcc -o cardtest1 -g cardtest1.c dominion.o rngs.o  $(CFLAGS) 
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o  $(CFLAGS)
 randomtestcard1: randomtestcard1.c dominion.o rngs.o
@@ -22,7 +24,11 @@ runrandomtestcard1: randomtestcard1
 runrandomtestcard2: randomtestcard2
 	./randomtestcard2 &> randomtestcard2.out
 	gcov dominion.c >> randomtestcard2.out
-	cat dominion.c.gcov >> randomtestcard2.out  
+	cat dominion.c.gcov >> randomtestcard2.out
+runcardtest1: cardtest1
+	./cardtest1 &> cardtest1.out
+	gcov dominion.c >> cardtest1.out
+	cat dominion.c.gcov >> cardtest1.out  
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o $(CFLAGS)
 #To run playdom you need to entere: ./playdom <any integer number> like ./playdom 10*/

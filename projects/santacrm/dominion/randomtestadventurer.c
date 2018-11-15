@@ -8,6 +8,7 @@
 
 int main(){
 
+  srand(time(NULL));
   int testRuns = rand() % 100 + 10; //at least 10 runs 
   int seed = rand() % 1000 + 100; 
   int numPlayers = 2; 
@@ -25,17 +26,19 @@ int main(){
   
   struct gameState G;
   
-  srand(time(NULL));
+  
 
   printf("Random Tester: Adventurer\n");
   
   for (i = 0; i < testRuns; i++){
-  
+  printf("---------------------BEGIN NEW RUN------------------------\n");
     initializeGame(numPlayers, k, seed, &G);
     G.whoseTurn = player;
     G.handCount[player] = preHandCount;
     
     G.deckCount[player] = rand() % 400 + 10;
+    
+    printf("Start Hand Amount: %d\n", preHandCount);
     //build Player 1 deck Keep track of Coins
     //Any card is fair game here, not just cards in k
     for(j = 0; j < G.deckCount[player]; j++){
@@ -95,44 +98,44 @@ int main(){
     }
     //Checks status of treasure cards in hand
     //copper
-    if(handCopperCount != postCopperCount){
-      if(handCopperCount < postCopperCount){
-        printf("Copper was added to hand\n");
-        printf("Pre copper amount: %d\n", handCopperCount);
-        printf("Post copper amount: %d\n", postCopperCount);
-      }
-      else if(handCopperCount > postCopperCount){
-        printf("Copper was lost in hand???\n");
-        printf("Pre copper amount: %d\n", handCopperCount);
-        printf("Post copper amount: %d\n", postCopperCount);
-      }
-    }
-    //silver
-    if(handSilverCount != postSilverCount){
-      if(handSilverCount < postSilverCount){
-        printf("Silver was added to hand\n");
-        printf("Pre Silver amount: %d\n", handSilverCount);
-        printf("Post Silver amount: %d\n", postSilverCount);
-      }
-      else if(handSilverCount > postSilverCount){
-        printf("Silver was lost in hand???\n");
-        printf("Pre Silver amount:  %d\n", handSilverCount);
-        printf("Post Silver amount: %d\n", postSilverCount);
-      }
-    }
-    //Gold
-    if(handGoldCount != postGoldCount){
-      if(handGoldCount < postGoldCount){
-        printf("Gold was added to hand\n");
-        printf("Pre Gold amount: %d\n", handGoldCount);
-        printf("Post Gold amount: %d\n", postGoldCount);
-      }
-      else if(handGoldCount > postGoldCount){
-        printf("Gold was lost in hand\n");
-        printf("Pre Gold amount: %d\n", handGoldCount);
-        printf("Post Gold amount: %d\n", postGoldCount);
-      }
-    }
+//    if(handCopperCount != postCopperCount){
+//      if(handCopperCount < postCopperCount){
+//        printf("Copper was added to hand\n");
+//        printf("Pre copper amount: %d\n", handCopperCount);
+//        printf("Post copper amount: %d\n", postCopperCount);
+//      }
+//      else if(handCopperCount > postCopperCount){
+//        printf("Copper was lost in hand???\n");
+//        printf("Pre copper amount: %d\n", handCopperCount);
+//        printf("Post copper amount: %d\n", postCopperCount);
+//      }
+//    }
+//    //silver
+//    if(handSilverCount != postSilverCount){
+//      if(handSilverCount < postSilverCount){
+//        printf("Silver was added to hand\n");
+//        printf("Pre Silver amount: %d\n", handSilverCount);
+//        printf("Post Silver amount: %d\n", postSilverCount);
+//      }
+//      else if(handSilverCount > postSilverCount){
+//        printf("Silver was lost in hand???\n");
+//        printf("Pre Silver amount:  %d\n", handSilverCount);
+//        printf("Post Silver amount: %d\n", postSilverCount);
+//      }
+//    }
+//    //Gold
+//    if(handGoldCount != postGoldCount){
+//      if(handGoldCount < postGoldCount){
+//        printf("Gold was added to hand\n");
+//        printf("Pre Gold amount: %d\n", handGoldCount);
+//        printf("Post Gold amount: %d\n", postGoldCount);
+//      }
+//      else if(handGoldCount > postGoldCount){
+//        printf("Gold was lost in hand\n");
+//        printf("Pre Gold amount: %d\n", handGoldCount);
+//        printf("Post Gold amount: %d\n", postGoldCount);
+//      }
+//    }
     
     printf("Initial Values of Treasure found in Hand\n");
     printf("Copper: %d\n", handSilverCount);
