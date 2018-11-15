@@ -8,7 +8,7 @@
 
 int main(){
 
-  int testRuns = 2;//rand() % 100 + 10; //at least 10 runs 
+  int testRuns = rand() % 100 + 10; //at least 10 runs 
   int seed = rand() % 1000 + 100; 
   int numPlayers = 2; 
   int player = 1;
@@ -24,8 +24,7 @@ int main(){
   
   
   struct gameState G;
-  G.whoseTurn = player;
-  G.handCount[player] = preHandCount;
+  
   srand(time(NULL));
 
   printf("Random Tester: Adventurer\n");
@@ -33,7 +32,8 @@ int main(){
   for (i = 0; i < testRuns; i++){
   
     initializeGame(numPlayers, k, seed, &G);
-    
+    G.whoseTurn = player;
+    G.handCount[player] = preHandCount;
     
     G.deckCount[player] = rand() % 400 + 10;
     //build Player 1 deck Keep track of Coins
