@@ -41,7 +41,7 @@ int main(){
       printf("%d ", G.hand[player][j]);
     }
   printf("\n");
-  smithyCard(&G, 0, 1);
+  smithy_run(0, &G, 1);
   printf("\n");
   printf("Hand state Post Smithy: ");
   for(j = 0; j < G.handCount[player]; j++){
@@ -65,7 +65,7 @@ int main(){
       printf("%d ", G.hand[player][j]);
     }
   printf("\n");
-  smithyCard(&G, 0, 1);
+  smithy_run(0, &G, 1);
   printf("\n");
   printf("Hand state Post Smithy: ");
   for(j = 0; j < G.handCount[player]; j++){

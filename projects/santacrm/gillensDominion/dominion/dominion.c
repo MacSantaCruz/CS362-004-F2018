@@ -665,7 +665,7 @@ int adventurer_run(int currentPlayer, struct gameState *state, int handPos){
   }
   while(z-1>=0){
     state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
-    //BUG - was z=z-1
+    
     z=z-2;
   }
   return 0;

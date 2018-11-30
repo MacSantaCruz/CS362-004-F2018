@@ -71,7 +71,7 @@ int main(){
       }
     }
     
-    adventurerCard(&G, player);
+    adventurer_run(1, &G, 0);
     //Check that two cards were drawn
     if(G.handCount[player] != postHandCount){
       if(G.handCount[player] > postHandCount){
